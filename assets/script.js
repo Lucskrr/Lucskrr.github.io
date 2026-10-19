@@ -58,13 +58,6 @@
     a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(texto);
   });
 
-  // botão do diagnóstico gratuito: mensagem própria, para o negócio completar o nome
-  var textoDiag = "Olá Lucca! Quero o diagnóstico gratuito de presença no Google do meu negócio." +
-    (origem ? " (origem: " + origem + ")" : "") + "\nNome do negócio: ";
-  document.querySelectorAll("a[data-wa-diag]").forEach(function (a) {
-    a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(textoDiag);
-  });
-
   // formulário de proposta: só aparece se houver um endereço de envio configurado
   var form = document.getElementById("form-contato");
   if (form) {
