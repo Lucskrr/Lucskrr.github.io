@@ -68,6 +68,7 @@
           <li><a href="#habilidades">Habilidades</a></li>
           <li><a href="#projetos">Projetos</a></li>
           <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diagnostico">Diagnóstico</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -224,6 +225,49 @@ formando em dez/2026 <span class="caret"></span></pre>
       </div>
     </section>
 
+    <section id="diagnostico">
+      <div class="wrap">
+        <div class="sec-head reveal"><span class="tag">// diagnóstico gratuito</span><h2>Como o seu negócio aparece no Google?</h2></div>
+        <p class="sec-intro reveal">Eu preparo um mini-diagnóstico gratuito da presença do seu negócio no Google, em uma imagem simples que te envio pelo WhatsApp. Sem compromisso.</p>
+        <div class="diag reveal" id="diag">
+          <div class="diag-card">
+            <h3>Prefere falar agora?</h3>
+            <p>Chame no WhatsApp com a mensagem já pronta. É só completar o nome do seu negócio.</p>
+            <a class="btn primary" data-wa-diag data-goal="clique-diagnostico-whatsapp" href="https://wa.me/5541998861768" target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+          </div>
+          <form class="diag-card" id="form-contato" method="post" action="" data-endpoint="" novalidate>
+            <h3>Ou deixe seus dados e receba uma proposta</h3>
+            <p>Conte um pouco do seu negócio e do que você precisa. Eu respondo com uma proposta sob medida.</p>
+            <div class="form-grid">
+              <div class="field"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" type="text" autocomplete="name" required maxlength="80"></div>
+              <div class="field"><label for="f-negocio">Nome do negócio</label><input id="f-negocio" name="negocio" type="text" required maxlength="80"></div>
+              <div class="field"><label for="f-cidade">Cidade</label><input id="f-cidade" name="cidade" type="text" value="Maringá-PR" required maxlength="60"></div>
+              <div class="field"><label for="f-contato">WhatsApp ou e-mail</label><input id="f-contato" name="contato" type="text" autocomplete="off" required maxlength="80"></div>
+              <div class="field full"><label for="f-presenca">Instagram ou site do negócio <small>(opcional)</small></label><input id="f-presenca" name="presenca" type="text" maxlength="120"></div>
+              <div class="field full"><label for="f-interesse">O que você precisa?</label>
+                <select id="f-interesse" name="interesse" required>
+                  <option value="">Escolha uma opção</option>
+                  <option>Diagnóstico gratuito de presença no Google</option>
+                  <option>Site ou landing page</option>
+                  <option>Sistema para o meu comércio (estoque, vendas, agenda)</option>
+                  <option>Painel de dados (Power BI)</option>
+                  <option>Automação de tarefas</option>
+                  <option>Outro</option>
+                </select></div>
+              <div class="field full"><label for="f-mensagem">Mensagem <small>(opcional)</small></label><textarea id="f-mensagem" name="mensagem" maxlength="600"></textarea></div>
+              <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+              <input type="hidden" name="origem" value="">
+              <input type="hidden" name="_subject" value="Novo contato pelo site">
+              <div class="field full"><label class="consent"><input type="checkbox" name="consentimento" value="sim" required>
+                <span>Concordo em enviar estes dados para o Lucca me responder e preparar uma proposta. Li a <a href="privacidade.html" target="_blank" rel="noopener">política de privacidade</a>.</span></label></div>
+            </div>
+            <button class="btn primary" type="submit" style="margin-top:16px">Enviar</button>
+            <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section id="contato">
       <div class="wrap">
         <div class="contact reveal">
@@ -245,7 +289,7 @@ formando em dez/2026 <span class="caret"></span></pre>
     </section>
   </main>
 
-  <footer><div class="wrap">© 2026 Lucca Rocha · Feito à mão com HTML, CSS e um pouco de JavaScript<br>Este site não usa cookies. Medimos as visitas de forma anônima, sem identificar você.</div></footer>
+  <footer><div class="wrap">© 2026 Lucca Rocha · Feito à mão com HTML, CSS e um pouco de JavaScript<br>Este site não usa cookies. Medimos as visitas de forma anônima, sem identificar você. <a href="privacidade.html">Política de privacidade</a></div></footer>
 
   <script src="assets/script.js"></script>
   <script data-goatcounter="https://lucskrr.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

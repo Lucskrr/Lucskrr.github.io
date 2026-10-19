@@ -214,3 +214,46 @@ footer { padding: 48px 0 40px; color: var(--muted); font-size: 0.88rem; text-ali
   .dot, .caret { animation: none; }
   .card, .btn { transition: none; }
 }
+
+/* diagnóstico gratuito e formulário */
+.sec-intro { color: var(--muted); max-width: 62ch; margin: -12px 0 28px; }
+.diag { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 18px; align-items: start; }
+.diag.so-um { grid-template-columns: 1fr; max-width: 640px; }
+.diag-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+.diag-card h3 { font-family: var(--font-title); font-size: 1.25rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+.diag-card p { margin: 0 0 18px; color: var(--muted); font-size: 0.97rem; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.field { display: grid; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 0.85rem; font-weight: 600; }
+.field label small { color: var(--muted); font-weight: 400; }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 0.97rem; color: var(--text); background: var(--bg);
+  border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px;
+}
+.field textarea { min-height: 88px; resize: vertical; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.field .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.88rem; font-weight: 400; color: var(--muted); }
+.field .consent input { width: 18px; height: 18px; padding: 0; margin: 2px 0 0; border-radius: 4px; accent-color: var(--accent); flex: none; }
+.field .consent a { color: var(--accent); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-status { min-height: 1.4em; font-size: 0.92rem; margin-top: 12px; }
+.form-status.ok { color: var(--accent-2); }
+.form-status.erro { color: #e5484d; }
+button.btn { cursor: pointer; font-family: inherit; }
+button.btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+/* página de privacidade */
+.prosa { max-width: 760px; padding: 56px 0 32px; }
+.prosa h2 { font-family: var(--font-title); font-size: 1.35rem; margin: 34px 0 8px; letter-spacing: -0.01em; }
+.prosa p, .prosa li { color: var(--muted); }
+.prosa strong { color: var(--text); font-weight: 600; }
+.prosa a { color: var(--accent); }
+.prosa ul { padding-left: 20px; }
+.prosa li { margin-bottom: 8px; }
+.muted { color: var(--muted); }
+
+@media (max-width: 860px) {
+  .diag { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+}

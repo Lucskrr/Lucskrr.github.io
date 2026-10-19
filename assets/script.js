@@ -58,6 +58,54 @@
     a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(texto);
   });
 
+  // botão do diagnóstico gratuito: mensagem própria, para o negócio completar o nome
+  var textoDiag = "Olá Lucca! Quero o diagnóstico gratuito de presença no Google do meu negócio." +
+    (origem ? " (origem: " + origem + ")" : "") + "\nNome do negócio: ";
+  document.querySelectorAll("a[data-wa-diag]").forEach(function (a) {
+    a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(textoDiag);
+  });
+
+  // formulário de proposta: só aparece se houver um endereço de envio configurado
+  var form = document.getElementById("form-contato");
+  if (form) {
+    var endpoint = (form.getAttribute("data-endpoint") || "").trim();
+    var caixa = document.getElementById("diag");
+    if (!endpoint) {
+      form.hidden = true;
+      if (caixa) caixa.classList.add("so-um");
+    } else {
+      var campoOrigem = form.querySelector("input[name=origem]");
+      if (campoOrigem) campoOrigem.value = origem || "direto";
+      var status = document.getElementById("form-status");
+      var botao = form.querySelector("button[type=submit]");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        status.className = "form-status";
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var dados = new FormData(form);
+        if (dados.get("_gotcha")) { return; } // robô: ignora em silêncio
+        botao.disabled = true;
+        status.textContent = "Enviando...";
+        fetch(endpoint, { method: "POST", body: dados, headers: { Accept: "application/json" } })
+          .then(function (r) {
+            if (!r.ok) { throw new Error("falha " + r.status); }
+            form.reset();
+            if (campoOrigem) campoOrigem.value = origem || "direto";
+            status.className = "form-status ok";
+            status.textContent = "Recebi! Respondo em breve pelo contato que você informou.";
+            if (window.goatcounter && typeof window.goatcounter.count === "function") {
+              window.goatcounter.count({ path: "formulario-enviado", title: "Formulário enviado", event: true });
+            }
+          })
+          .catch(function () {
+            status.className = "form-status erro";
+            status.textContent = "Não consegui enviar agora. Tente de novo ou chame no WhatsApp.";
+          })
+          .then(function () { botao.disabled = false; });
+      });
+    }
+  }
+
   // contagem de cliques nos contatos (só age se o GoatCounter estiver carregado)
   document.querySelectorAll("a[data-goal]").forEach(function (a) {
     a.addEventListener("click", function () {
