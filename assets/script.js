@@ -39,6 +39,34 @@
     }, { passive: true });
   }
 
+  // origem do contato: ?utm_source=... na URL ou, se não houver, o site de onde a pessoa veio.
+  // A origem vai só dentro da mensagem do WhatsApp; nada é gravado no navegador.
+  function origemDoVisitante() {
+    var origem = "";
+    try { origem = new URLSearchParams(window.location.search).get("utm_source") || ""; } catch (e) { /* sem origem */ }
+    if (!origem && document.referrer) {
+      try {
+        var host = new URL(document.referrer).hostname.replace(/^www\./, "");
+        if (host && host !== window.location.hostname) origem = host;
+      } catch (e) { /* referrer inválido */ }
+    }
+    return origem.replace(/[^\w.\-]/g, "").slice(0, 40);
+  }
+  var origem = origemDoVisitante();
+  var texto = "Olá Lucca! Vi seu portfólio e gostaria de conversar." + (origem ? " (origem: " + origem + ")" : "");
+  document.querySelectorAll("a[data-wa]").forEach(function (a) {
+    a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(texto);
+  });
+
+  // contagem de cliques nos contatos (só age se o GoatCounter estiver carregado)
+  document.querySelectorAll("a[data-goal]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (window.goatcounter && typeof window.goatcounter.count === "function") {
+        window.goatcounter.count({ path: a.getAttribute("data-goal"), title: a.textContent.trim(), event: true });
+      }
+    });
+  });
+
   // entrada dos blocos ao rolar
   var itens = document.querySelectorAll(".reveal");
   if (reduz || !("IntersectionObserver" in window)) {
