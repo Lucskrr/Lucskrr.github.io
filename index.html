@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://lucskrr.github.io/">
   <meta name="theme-color" content="#0f1217">
   <meta property="og:title" content="Lucca Rocha · Desenvolvedor de software em Maringá-PR">
-  <meta property="og:description" content="Sistemas para comércio, sites, dashboards em Power BI e automação. Atendimento presencial em Maringá-PR.">
+  <meta property="og:description" content="Sistemas para comércio, sites, dashboards em Power BI e automação. Atendimento online para todo o Brasil.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lucskrr.github.io/">
   <meta property="og:locale" content="pt_BR">
@@ -46,7 +46,7 @@
         "url": "https://lucskrr.github.io/",
         "image": "https://lucskrr.github.io/assets/og.png",
         "founder": { "@id": "https://lucskrr.github.io/#lucca" },
-        "areaServed": { "@type": "City", "name": "Maringá" },
+        "areaServed": { "@type": "Country", "name": "Brasil" },
         "address": { "@type": "PostalAddress", "addressLocality": "Maringá", "addressRegion": "PR", "addressCountry": "BR" },
         "description": "Sites e landing pages, sistemas para comércio, dashboards em Power BI e automação com Python."
       }
@@ -69,6 +69,7 @@
           <li><a href="#projetos">Projetos</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="sites.html">Para negócios</a></li>
         </ul>
       </nav>
       <button class="theme-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
@@ -84,7 +85,7 @@
           <p class="lead">Sou o <strong>Lucca</strong>, estudante de <strong>Engenharia de Software</strong> na Unicesumar. Gosto de back-end, banco de dados e de transformar dado bruto em decisão, do código ao painel no Power BI.</p>
           <div class="cta">
             <a class="btn primary" href="#projetos">Ver projetos →</a>
-            <a class="btn" data-goal="clique-topo-diagnostico" href="#contato">Diagnóstico gratuito</a>
+            <a class="btn" data-goal="clique-topo-negocios" href="sites.html">Tenho um negócio →</a>
           </div>
         </div>
         <div class="hero-side">
@@ -214,7 +215,7 @@ formando em dez/2026 <span class="caret"></span></pre>
     <section id="servicos">
       <div class="wrap">
         <div class="sec-head reveal"><span class="tag">// serviços</span><h2>Posso te ajudar com</h2></div>
-        <p class="reveal" style="color:var(--muted);margin:-12px 0 24px">📍 Atendimento presencial em Maringá-PR, para quem prefere resolver olho no olho.</p>
+        <p class="reveal" style="color:var(--muted);margin:-12px 0 24px">Atendimento online para todo o Brasil. Tem um negócio local? <a data-goal="clique-servicos-negocios" href="sites.html" style="color:var(--accent)">Veja os planos de sites e o diagnóstico gratuito →</a></p>
         <div class="services reveal">
           <div class="service"><h3>Sites e landing pages</h3><p>Para profissionais e negócios locais: rápidas, bonitas no celular e pensadas para gerar contato por WhatsApp.</p></div>
           <div class="service"><h3>Sistemas para comércio</h3><p>Mercados, distribuidoras, barbearias e comércios em geral: estoque, vendas, agendamento e relatórios sob medida para a rotina do seu negócio.</p></div>
@@ -227,7 +228,7 @@ formando em dez/2026 <span class="caret"></span></pre>
     <section id="contato">
       <div class="wrap">
         <div class="sec-head reveal"><span class="tag">// contato</span><h2>Vamos conversar?</h2></div>
-        <p class="sec-intro reveal">Tem um negócio em Maringá? Peça o <strong>mini-diagnóstico gratuito</strong> da presença dele no Google: uma imagem simples que te envio pelo WhatsApp, sem compromisso. Para vagas e projetos, é só chamar.</p>
+        <p class="sec-intro reveal">Para vagas e projetos, é só chamar. Tem um negócio? Peça o <strong>mini-diagnóstico gratuito</strong> da presença dele no Google: uma imagem simples que te envio pelo WhatsApp, sem compromisso.</p>
         <div class="diag reveal" id="diag">
           <div class="diag-card">
             <h3>Prefere falar agora?</h3>
@@ -246,7 +247,7 @@ formando em dez/2026 <span class="caret"></span></pre>
             <div class="form-grid">
               <div class="field"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" type="text" autocomplete="name" required maxlength="80"></div>
               <div class="field"><label for="f-negocio">Nome do negócio</label><input id="f-negocio" name="negocio" type="text" required maxlength="80"></div>
-              <div class="field"><label for="f-cidade">Cidade</label><input id="f-cidade" name="cidade" type="text" value="Maringá-PR" required maxlength="60"></div>
+              <div class="field"><label for="f-cidade">Cidade</label><input id="f-cidade" name="cidade" type="text" autocomplete="address-level2" required maxlength="60"></div>
               <div class="field"><label for="f-contato">WhatsApp ou e-mail</label><input id="f-contato" name="contato" type="text" autocomplete="off" required maxlength="80"></div>
               <div class="field full"><label for="f-presenca">Instagram ou site do negócio <small>(opcional)</small></label><input id="f-presenca" name="presenca" type="text" maxlength="120"></div>
               <div class="field full"><label for="f-interesse">O que você precisa?</label>

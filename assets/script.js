@@ -54,8 +54,11 @@
   }
   var origem = origemDoVisitante();
   var texto = "Olá Lucca! Vi seu portfólio e gostaria de conversar." + (origem ? " (origem: " + origem + ")" : "");
+  // cada botão pode trazer a própria mensagem em data-wa; sem ela, vale a mensagem padrão
+  var sufixo = origem ? " (origem: " + origem + ")" : "";
   document.querySelectorAll("a[data-wa]").forEach(function (a) {
-    a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(texto);
+    var propria = (a.getAttribute("data-wa") || "").trim();
+    a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(propria ? propria + sufixo : texto);
   });
 
   // formulário de proposta: só aparece se houver um endereço de envio configurado
