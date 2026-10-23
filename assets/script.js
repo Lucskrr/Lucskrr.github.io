@@ -98,6 +98,8 @@
               window.goatcounter.count({ path: "formulario-enviado", title: "Formulário enviado", event: true });
             }
             medirGoogle("generate_lead", { metodo: "formulario", interesse: dados.get("interesse") || "" });
+            // dá tempo de os eventos saírem antes de ir para a página de obrigado
+            setTimeout(function () { window.location.href = "obrigado.html"; }, 600);
           })
           .catch(function () {
             status.className = "form-status erro";
