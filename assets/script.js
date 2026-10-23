@@ -39,6 +39,11 @@
     }, { passive: true });
   }
 
+  // eventos do GA4: só existem se o consent.js tiver um ID configurado
+  function medirGoogle(nome, params) {
+    if (typeof window.gtag === "function") window.gtag("event", nome, params || {});
+  }
+
   // origem do contato: ?utm_source=... na URL ou, se não houver, o site de onde a pessoa veio.
   // A origem vai só dentro da mensagem do WhatsApp; nada é gravado no navegador.
   function origemDoVisitante() {
@@ -92,6 +97,7 @@
             if (window.goatcounter && typeof window.goatcounter.count === "function") {
               window.goatcounter.count({ path: "formulario-enviado", title: "Formulário enviado", event: true });
             }
+            medirGoogle("generate_lead", { metodo: "formulario", interesse: dados.get("interesse") || "" });
           })
           .catch(function () {
             status.className = "form-status erro";
@@ -108,6 +114,7 @@
       if (window.goatcounter && typeof window.goatcounter.count === "function") {
         window.goatcounter.count({ path: a.getAttribute("data-goal"), title: a.textContent.trim(), event: true });
       }
+      if (a.hasAttribute("data-wa")) medirGoogle("click_whatsapp", { local: a.getAttribute("data-goal") });
     });
   });
 

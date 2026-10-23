@@ -342,3 +342,24 @@ footer a { color: var(--muted); }
   .steps { grid-template-columns: 1fr; }
   footer { padding-bottom: 88px; }
 }
+
+/* aviso de cookies */
+.cookies {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 40; max-width: 720px; margin-inline: auto;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px 20px; box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6); font-size: 0.92rem;
+}
+.cookies[hidden] { display: none; }
+.cookies p { margin: 0 0 12px; color: var(--muted); }
+.cookies p strong { color: var(--text); margin-right: 6px; }
+.cookies a { color: var(--accent); }
+.cookies-opcoes { display: grid; gap: 8px; margin: 0 0 14px; }
+.cookies-opcoes[hidden] { display: none; }
+.cookies-opcoes label { display: flex; gap: 10px; align-items: center; }
+.cookies-opcoes input { width: 18px; height: 18px; accent-color: var(--accent); }
+.cookies-opcoes small { color: var(--muted); }
+.cookies-botoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.cookies-botoes .btn { justify-content: center; padding: 10px 12px; font-size: 0.9rem; }
+.link-cookies { background: none; border: 0; padding: 0; font: inherit; color: var(--muted); text-decoration: underline; cursor: pointer; }
+.link-cookies[hidden] { display: none; }
+@media (max-width: 520px) { .cookies-botoes { grid-template-columns: 1fr; } }
