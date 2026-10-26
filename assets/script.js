@@ -66,6 +66,17 @@
     a.href = "https://wa.me/5541998861768?text=" + encodeURIComponent(propria ? propria + sufixo : texto);
   });
 
+  // preço de lançamento: vale até a data ou enquanto houver vaga; depois a página mostra o preço normal.
+  // Ao fechar um cliente, diminua data-lanc-vagas em sites.html.
+  var planos = document.querySelector("[data-lanc-ate]");
+  if (planos) {
+    var ate = new Date(planos.getAttribute("data-lanc-ate"));
+    var vagas = parseInt(planos.getAttribute("data-lanc-vagas"), 10);
+    if (isNaN(vagas)) vagas = 0;
+    document.querySelectorAll("[data-lanc-restam]").forEach(function (el) { el.textContent = vagas; });
+    if (vagas <= 0 || isNaN(ate.getTime()) || Date.now() > ate.getTime()) raiz.classList.add("lanc-fim");
+  }
+
   // formulário de proposta: só aparece se houver um endereço de envio configurado
   var form = document.getElementById("form-contato");
   if (form) {

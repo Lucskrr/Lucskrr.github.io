@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clara Nutri · Projeto conceito</title>
+  <meta name="description" content="Projeto conceito: site de demonstração para nutricionista, criado por Lucca Rocha. Negócio fictício.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#f6f3ec">
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <link rel="stylesheet" href="conceito.css">
+  <style>
+    :root {
+      --bg: #f6f3ec; --surface: #ffffff; --text: #23302a; --muted: #5d6b63; --line: #dfe3d8;
+      --accent: #3f7d5c; --on-accent: #ffffff; --soft: #e5eee3; --peach: #f3d9c6;
+      --font-title: Georgia, "Times New Roman", serif; --radius-btn: 999px;
+    }
+    .topo { padding: 18px 0; }
+    .topo .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .marca { font-family: var(--font-title); font-size: 1.35rem; text-decoration: none; }
+    .marca span { color: var(--accent); }
+    .topo nav a { text-decoration: none; color: var(--muted); margin-left: 18px; font-size: 0.95rem; }
+    .hero { padding: 40px 0 72px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+    .selo { display: inline-block; background: var(--soft); color: var(--accent); font-weight: 700; font-size: 0.85rem; padding: 6px 14px; border-radius: 999px; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 18px 0; letter-spacing: -0.01em; }
+    .hero h1 em { color: var(--accent); }
+    .hero p { color: var(--muted); font-size: 1.12rem; max-width: 46ch; margin: 0 0 26px; }
+    .acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+    .arte { aspect-ratio: 1; border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%; background: radial-gradient(circle at 30% 30%, var(--peach), transparent 60%), var(--soft); display: grid; place-items: center; }
+    .arte svg { width: 62%; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: grid; gap: 8px; }
+    .card h3 { font-size: 1.25rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    .card small { color: var(--accent); font-weight: 700; }
+    .faixa-verde { background: var(--accent); color: #fff; }
+    .faixa-verde .sub { color: #d9eadf; }
+    .passos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: p; }
+    .passos li { counter-increment: p; border-top: 2px solid rgba(255, 255, 255, 0.4); padding-top: 16px; }
+    .passos li::before { content: counter(p); font-family: var(--font-title); font-size: 2rem; display: block; }
+    .passos b { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+    .passos span { color: #d9eadf; font-size: 0.96rem; }
+    .sobre { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; align-items: center; }
+    .retrato { aspect-ratio: 4 / 5; border-radius: 24px; background: linear-gradient(160deg, var(--peach), var(--soft)); display: grid; place-items: center; color: var(--muted); font-size: 0.9rem; text-align: center; padding: 20px; }
+    .sobre p { color: var(--muted); }
+    .info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .info .card ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 18px; margin-bottom: 10px; }
+    summary { cursor: pointer; font-weight: 700; padding: 15px 0; }
+    details p { margin: 0 0 16px; color: var(--muted); }
+    .final { text-align: center; }
+    .final .sub { margin-inline: auto; }
+    @media (max-width: 820px) {
+      .hero .wrap, .sobre, .info { grid-template-columns: 1fr; }
+      .cards, .passos { grid-template-columns: 1fr; }
+      .arte { max-width: 320px; margin-inline: auto; }
+      .topo nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="conceito-faixa"><div class="wrap">
+    <span><b>Projeto conceito</b> · negócio fictício, criado por Lucca Rocha para demonstração.</span>
+    <nav><a class="voltar" href="../sites.html#exemplos">← Outros exemplos</a><a class="quero" data-wa="Olá Lucca! Vi o projeto conceito de nutricionista e quero um site assim." data-goal="conceito-nutricionista" href="https://wa.me/5541998861768" target="_blank" rel="noopener">Quero um assim</a></nav>
+  </div></div>
+
+  <header class="topo"><div class="wrap">
+    <a class="marca" href="#">Clara<span>.</span>Nutri</a>
+    <nav><a href="#atendimento">Atendimento</a><a href="#sobre">Sobre</a><a href="#local">Local e horários</a></nav>
+  </div></header>
+
+  <main>
+    <section class="hero"><div class="wrap">
+      <div>
+        <span class="selo">Presencial e online</span>
+        <h1>Comer bem pode ser <em>simples</em> e caber na sua rotina</h1>
+        <p>Consultas de nutrição com plano alimentar feito para a sua vida real: seus horários, seus gostos e o seu orçamento.</p>
+        <div class="acoes">
+          <a class="btn" href="#" data-demo="Olá! Quero agendar uma consulta.">Agendar pelo WhatsApp</a>
+          <a class="btn ghost" href="#atendimento">Ver atendimentos</a>
+        </div>
+      </div>
+      <div class="arte" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none" stroke="#3f7d5c" stroke-width="6" stroke-linecap="round">
+          <circle cx="100" cy="110" r="62" fill="#fff"/>
+          <path d="M100 48c0-22 14-34 34-36-2 22-14 34-34 36Z" fill="#cfe3d2"/>
+          <path d="M100 48V30"/>
+          <path d="M68 112c10 18 54 18 64 0" />
+          <circle cx="80" cy="96" r="5" fill="#3f7d5c"/><circle cx="120" cy="96" r="5" fill="#3f7d5c"/>
+        </svg>
+      </div>
+    </div></section>
+
+    <section id="atendimento"><div class="wrap">
+      <h2>Como posso te ajudar</h2>
+      <p class="sub">Escolha o formato que funciona melhor para você. Todos incluem plano alimentar e acompanhamento pelo WhatsApp.</p>
+      <div class="cards">
+        <article class="card"><small>Primeira consulta</small><h3>Avaliação completa</h3><p>Conversa sobre rotina, histórico e objetivos, avaliação e plano alimentar personalizado.</p></article>
+        <article class="card"><small>De qualquer lugar</small><h3>Consulta online</h3><p>Por videochamada, com o mesmo cuidado da presencial e o plano enviado no seu celular.</p></article>
+        <article class="card"><small>A cada 30 a 45 dias</small><h3>Retorno</h3><p>Ajustes no plano conforme a sua evolução e as dificuldades do dia a dia.</p></article>
+      </div>
+    </div></section>
+
+    <section class="faixa-verde"><div class="wrap">
+      <h2>Do primeiro contato ao plano na mão</h2>
+      <p class="sub">Sem complicação e sem dieta da moda.</p>
+      <ol class="passos">
+        <li><b>Você chama no WhatsApp</b><span>Escolhe o dia, o horário e o formato da consulta.</span></li>
+        <li><b>Consulta</b><span>Entendo a sua rotina e o que é possível mudar agora.</span></li>
+        <li><b>Plano e acompanhamento</b><span>Você recebe o plano e tira dúvidas pelo WhatsApp até o retorno.</span></li>
+      </ol>
+    </div></section>
+
+    <section id="sobre"><div class="wrap sobre">
+      <div class="retrato">Aqui entra a foto profissional da nutricionista</div>
+      <div>
+        <h2>Prazer, sou a Clara</h2>
+        <p>Nutricionista com foco em reeducação alimentar e comportamento. Acredito em mudanças pequenas e possíveis, que você consegue manter depois que a consulta acaba.</p>
+        <p>No site real, aqui entram a formação, o número do CRN e as especialidades.</p>
+        <a class="btn ghost" href="#" data-demo="Olá! Quero tirar uma dúvida antes de agendar.">Tirar uma dúvida</a>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <h2>Avaliações</h2>
+      <div class="placeholder"><b>Avaliações reais do Google</b>No site de verdade, esta área mostra as avaliações que os pacientes deixaram no Perfil da Empresa no Google, com link para ver todas.</div>
+    </div></section>
+
+    <section id="local"><div class="wrap">
+      <h2>Local e horários</h2>
+      <div class="info">
+        <article class="card"><h3>Consultório</h3><p>Endereço, bairro e um mapa do Google ficam aqui, com o botão “Como chegar”.</p></article>
+        <article class="card"><h3>Horários</h3><ul><li>Segunda a sexta: 8h às 19h</li><li>Sábado: 8h às 12h</li><li>Online: horários combinados</li></ul></article>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <h2>Dúvidas frequentes</h2>
+      <details><summary>Atende por convênio?</summary><p>Atendimento particular, com recibo para pedir reembolso ao seu plano de saúde.</p></details>
+      <details><summary>A consulta online funciona mesmo?</summary><p>Sim. A conversa e o plano são os mesmos; só a avaliação física é feita com as medidas que você mesmo tira, com orientação.</p></details>
+      <details><summary>Quanto tempo dura a consulta?</summary><p>A primeira leva cerca de 1 hora. Os retornos, cerca de 40 minutos.</p></details>
+    </div></section>
+
+    <section class="final"><div class="wrap">
+      <h2>Vamos começar?</h2>
+      <p class="sub">Chame no WhatsApp e escolha o melhor horário para você.</p>
+      <a class="btn" href="#" data-demo="Olá! Quero agendar uma consulta.">Agendar pelo WhatsApp</a>
+    </div></section>
+  </main>
+
+  <footer class="rodape-conceito"><div class="wrap">Clara Nutri é um negócio fictício. Este é um projeto conceito de <a href="../sites.html">Lucca Rocha · sites para negócios locais</a>.</div></footer>
+
+  <script src="conceito.js"></script>
+  <script src="../assets/script.js"></script>
+</body>
+</html>

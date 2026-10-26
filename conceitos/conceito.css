@@ -1,0 +1,61 @@
+/* base comum dos projetos conceito: cada página define as próprias cores em :root */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--font-body, system-ui, -apple-system, "Segoe UI", sans-serif);
+  font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+section { padding: 64px 0; }
+h1, h2, h3 { font-family: var(--font-title, inherit); line-height: 1.12; margin: 0; }
+h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); margin-bottom: 12px; }
+.sub { color: var(--muted); max-width: 60ch; margin: 0 0 28px; }
+
+/* faixa que deixa claro que é demonstração */
+.conceito-faixa {
+  position: sticky; top: 0; z-index: 50; background: #11151b; color: #f2f3f5;
+  font-family: "Inter", system-ui, sans-serif; font-size: 0.85rem; line-height: 1.4;
+}
+.conceito-faixa .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 9px 0; }
+.conceito-faixa b { color: #ff8f5a; }
+.conceito-faixa nav { display: flex; gap: 10px; align-items: center; }
+.conceito-faixa a { text-decoration: none; }
+.conceito-faixa .voltar { color: #c9ced6; }
+.conceito-faixa .voltar:hover { color: #fff; }
+.conceito-faixa .quero { background: #ff8f5a; color: #11151b; font-weight: 700; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+
+/* botões genéricos; cada página ajusta forma e cor */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer;
+  font: inherit; font-weight: 700; padding: 13px 22px; border-radius: var(--radius-btn, 12px);
+  border: 2px solid var(--accent); background: var(--accent); color: var(--on-accent);
+  transition: transform 0.15s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--line); }
+
+/* espaço reservado para avaliações: no site real elas vêm do Google */
+.placeholder {
+  border: 2px dashed var(--line); border-radius: 16px; padding: 22px; color: var(--muted); background: color-mix(in srgb, var(--surface) 60%, transparent);
+}
+.placeholder b { color: var(--text); display: block; margin-bottom: 4px; }
+
+/* aviso quando alguém clica num botão do negócio fictício */
+.toast {
+  position: fixed; left: 50%; bottom: 20px; z-index: 60; transform: translate(-50%, calc(100% + 40px)); visibility: hidden;
+  width: min(440px, 100% - 32px); background: #11151b; color: #f2f3f5; border-radius: 14px; padding: 14px 16px;
+  font-family: "Inter", system-ui, sans-serif; font-size: 0.92rem; box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, visibility 0.3s;
+}
+.toast.on { transform: translate(-50%, 0); visibility: visible; }
+.toast a { color: #ff8f5a; font-weight: 700; }
+
+.rodape-conceito { padding: 36px 0 48px; text-align: center; font-size: 0.88rem; color: var(--muted); border-top: 1px solid var(--line); }
+.rodape-conceito a { color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) { .btn, .toast { transition: none; } html { scroll-behavior: auto; } }
+@media (max-width: 560px) { .conceito-faixa .voltar { display: none; } section { padding: 48px 0; } }

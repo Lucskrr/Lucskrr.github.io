@@ -302,6 +302,39 @@ button.btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .plan .btn { margin-top: auto; justify-content: center; }
 .plan-selo { align-self: flex-start; font-family: var(--font-mono); font-size: 0.72rem; padding: 3px 9px; border-radius: 6px; background: var(--accent); color: var(--on-accent); }
 .plans-nota { color: var(--muted); font-size: 0.9rem; margin: 16px 0 0; }
+.plan-preco { margin: 2px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.plan-preco b { font-family: var(--font-title); font-size: 1.7rem; letter-spacing: -0.01em; }
+.plan-preco s { color: var(--muted); font-size: 0.98rem; }
+.plan-preco small { color: var(--muted); font-size: 0.85rem; }
+
+/* preço de lançamento: o script troca para o preço normal quando o prazo ou as vagas acabam */
+.pos-lanc { display: none; }
+.lanc-fim .so-lanc { display: none; }
+.lanc-fim .pos-lanc { display: inline; }
+
+.conceitos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.conceito {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 16px 20px;
+  display: flex; flex-direction: column; gap: 8px; text-decoration: none; transition: transform 0.2s, border-color 0.2s;
+}
+.conceito:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+.conceito b { font-family: var(--font-title); font-size: 1.15rem; }
+.conceito > span:last-child { color: var(--muted); font-size: 0.92rem; }
+.conceito-tela {
+  aspect-ratio: 4 / 3; border-radius: 10px; background: var(--c1); border: 1px solid var(--border);
+  display: grid; align-content: center; gap: 8px; padding: 0 18%; margin-bottom: 6px;
+}
+.conceito-tela i { display: block; height: 8px; border-radius: 4px; background: var(--c2); opacity: 0.35; }
+.conceito-tela i:first-child { height: 14px; width: 80%; opacity: 1; }
+.conceito-tela i:last-child { width: 46%; height: 18px; border-radius: 9px; opacity: 1; }
+
+.quem { display: flex; gap: 28px; align-items: center; }
+.quem .photo { flex: none; width: 128px; height: 128px; }
+.quem .tag { font-family: var(--font-mono); color: var(--accent); font-size: 0.85rem; }
+.quem h3 { font-family: var(--font-title); font-size: 1.3rem; margin: 4px 0 6px; }
+.quem p { margin: 0 0 8px; color: var(--muted); max-width: 60ch; }
+.quem .link { font-weight: 600; text-decoration: none; color: var(--accent); }
+.quem .link:hover { text-decoration: underline; }
 
 .launch {
   margin-top: 28px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;
@@ -336,10 +369,11 @@ footer a { color: var(--muted); }
 
 @media (max-width: 860px) {
   .story, .plans, .garantias { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr 1fr; }
+  .steps, .conceitos { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 520px) {
-  .steps { grid-template-columns: 1fr; }
+  .steps, .conceitos { grid-template-columns: 1fr; }
+  .quem { flex-direction: column; align-items: flex-start; }
   footer { padding-bottom: 88px; }
 }
 

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pulso Studio · Projeto conceito</title>
+  <meta name="description" content="Projeto conceito: site de demonstração para academia e studio, criado por Lucca Rocha. Negócio fictício.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0d0f0c">
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <link rel="stylesheet" href="conceito.css">
+  <style>
+    :root {
+      --bg: #0d0f0c; --surface: #161a14; --text: #f1f4ec; --muted: #a4ad9c; --line: #2a3125;
+      --accent: #c6f432; --on-accent: #0d0f0c;
+      --font-title: "Space Grotesk", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; --radius-btn: 6px;
+    }
+    .topo { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .topo .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .marca { font-family: var(--font-title); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+    .marca span { color: var(--accent); }
+    .topo nav a { text-decoration: none; color: var(--muted); margin-left: 20px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .hero { padding: 72px 0 80px; position: relative; overflow: hidden; }
+    .hero::after { content: ""; position: absolute; right: -120px; top: 40px; width: 460px; height: 460px; border: 70px solid var(--accent); border-radius: 50%; opacity: 0.12; }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 5.4rem); text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95; max-width: 14ch; position: relative; z-index: 1; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { color: var(--muted); font-size: 1.12rem; max-width: 48ch; margin: 22px 0 28px; position: relative; z-index: 1; }
+    .acoes { display: flex; flex-wrap: wrap; gap: 12px; position: relative; z-index: 1; }
+    .numeros { display: flex; flex-wrap: wrap; gap: 14px 40px; margin-top: 44px; position: relative; z-index: 1; }
+    .numeros div { font-size: 0.9rem; color: var(--muted); }
+    .numeros b { display: block; font-family: var(--font-title); font-size: 1.6rem; color: var(--text); }
+    .titulo-sec { font-family: var(--font-title); text-transform: uppercase; letter-spacing: 0.04em; }
+    .modal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .modal article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: grid; gap: 6px; }
+    .modal article::before { content: ""; width: 34px; height: 4px; background: var(--accent); }
+    .modal h3 { font-size: 1.15rem; }
+    .modal p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .planos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .plano { border: 1px solid var(--line); border-radius: 10px; padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .plano.dest { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+    .plano h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .preco { font-family: var(--font-title); font-size: 2.2rem; font-weight: 700; }
+    .preco small { font-size: 0.95rem; color: var(--muted); font-weight: 400; }
+    .plano ul { margin: 0 0 8px; padding-left: 18px; color: var(--muted); font-size: 0.94rem; }
+    .plano .btn { margin-top: auto; }
+    .nota { color: var(--muted); font-size: 0.85rem; margin-top: 14px; }
+    .grade { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .grade th, .grade td { border-bottom: 1px solid var(--line); padding: 12px 10px; text-align: left; }
+    .grade th { color: var(--accent); font-family: var(--font-title); text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.06em; }
+    .grade td:first-child { font-weight: 700; }
+    .tabela { overflow-x: auto; }
+    .experimental { background: var(--accent); color: var(--on-accent); border-radius: 14px; padding: 36px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
+    .experimental h2 { text-transform: uppercase; margin: 0; }
+    .experimental p { margin: 6px 0 0; }
+    .experimental .btn { background: var(--on-accent); color: var(--accent); border-color: var(--on-accent); }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0 18px; margin-bottom: 10px; }
+    summary { cursor: pointer; font-weight: 700; padding: 15px 0; }
+    details p { margin: 0 0 16px; color: var(--muted); }
+    @media (max-width: 860px) {
+      .modal { grid-template-columns: 1fr 1fr; }
+      .planos { grid-template-columns: 1fr; }
+      .topo nav { display: none; }
+    }
+    @media (max-width: 520px) { .modal { grid-template-columns: 1fr; } .experimental { padding: 26px; } }
+  </style>
+</head>
+<body>
+  <div class="conceito-faixa"><div class="wrap">
+    <span><b>Projeto conceito</b> · negócio fictício, criado por Lucca Rocha para demonstração.</span>
+    <nav><a class="voltar" href="../sites.html#exemplos">← Outros exemplos</a><a class="quero" data-wa="Olá Lucca! Vi o projeto conceito de academia e quero um site assim." data-goal="conceito-academia" href="https://wa.me/5541998861768" target="_blank" rel="noopener">Quero um assim</a></nav>
+  </div></div>
+
+  <header class="topo"><div class="wrap">
+    <a class="marca" href="#">Pulso<span>/</span>Studio</a>
+    <nav><a href="#modalidades">Modalidades</a><a href="#planos">Planos</a><a href="#horarios">Horários</a></nav>
+  </div></header>
+
+  <main>
+    <section class="hero"><div class="wrap">
+      <h1>Treino que <span>cabe</span> no seu dia</h1>
+      <p>Funcional, musculação orientada e pilates em turmas pequenas, com professor do começo ao fim da aula.</p>
+      <div class="acoes">
+        <a class="btn" href="#" data-demo="Olá! Quero agendar uma aula experimental.">Agendar aula experimental</a>
+        <a class="btn ghost" href="#planos">Ver planos</a>
+      </div>
+      <div class="numeros">
+        <div><b>6h–22h</b>de segunda a sexta</div>
+        <div><b>Até 10</b>alunos por turma</div>
+        <div><b>1ª aula</b>experimental sem custo</div>
+      </div>
+    </div></section>
+
+    <section id="modalidades"><div class="wrap">
+      <h2 class="titulo-sec">Modalidades</h2>
+      <p class="sub">Monte a sua semana combinando as aulas do seu plano.</p>
+      <div class="modal">
+        <article><h3>Funcional</h3><p>Força, cardio e mobilidade em circuitos de 50 minutos.</p></article>
+        <article><h3>Musculação orientada</h3><p>Ficha montada para o seu objetivo e acompanhamento na sala.</p></article>
+        <article><h3>Pilates solo</h3><p>Postura, core e flexibilidade, do iniciante ao avançado.</p></article>
+        <article><h3>HIIT 30</h3><p>Treino curto e intenso para quem tem pouco tempo.</p></article>
+      </div>
+    </div></section>
+
+    <section id="planos"><div class="wrap">
+      <h2 class="titulo-sec">Planos</h2>
+      <p class="sub">Sem taxa de matrícula. Cancele quando quiser.</p>
+      <div class="planos">
+        <article class="plano"><h3>2x por semana</h3><div class="preco">R$ 119<small>/mês</small></div><ul><li>Qualquer modalidade</li><li>Avaliação física inicial</li></ul><a class="btn ghost" href="#" data-demo="Olá! Quero saber do plano 2x por semana.">Quero este</a></article>
+        <article class="plano dest"><h3>3x por semana</h3><div class="preco">R$ 149<small>/mês</small></div><ul><li>Qualquer modalidade</li><li>Avaliação a cada 3 meses</li><li>App com o treino</li></ul><a class="btn" href="#" data-demo="Olá! Quero saber do plano 3x por semana.">Quero este</a></article>
+        <article class="plano"><h3>Livre</h3><div class="preco">R$ 189<small>/mês</small></div><ul><li>Todas as aulas, todos os dias</li><li>Avaliação a cada 3 meses</li></ul><a class="btn ghost" href="#" data-demo="Olá! Quero saber do plano livre.">Quero este</a></article>
+      </div>
+      <p class="nota">Valores ilustrativos de um negócio fictício. No site real, entram os seus planos e preços.</p>
+    </div></section>
+
+    <section id="horarios"><div class="wrap">
+      <h2 class="titulo-sec">Horários das turmas</h2>
+      <div class="tabela">
+        <table class="grade">
+          <thead><tr><th>Aula</th><th>Manhã</th><th>Almoço</th><th>Noite</th></tr></thead>
+          <tbody>
+            <tr><td>Funcional</td><td>6h · 7h</td><td>12h</td><td>18h · 19h</td></tr>
+            <tr><td>Pilates solo</td><td>8h</td><td>12h30</td><td>20h</td></tr>
+            <tr><td>HIIT 30</td><td>6h30</td><td>12h15</td><td>18h30</td></tr>
+            <tr><td>Musculação</td><td colspan="3">Livre, das 6h às 22h</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="experimental">
+        <div><h2>Primeira aula por nossa conta</h2><p>Escolha a modalidade e o horário e venha conhecer o studio.</p></div>
+        <a class="btn" href="#" data-demo="Olá! Quero agendar uma aula experimental.">Agendar agora</a>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <h2 class="titulo-sec">Avaliações</h2>
+      <div class="placeholder"><b>Avaliações reais do Google</b>No site de verdade, esta área mostra as avaliações que os alunos deixaram no Perfil da Empresa no Google.</div>
+    </div></section>
+
+    <section><div class="wrap">
+      <h2 class="titulo-sec">Dúvidas</h2>
+      <details><summary>Nunca treinei. Posso começar?</summary><p>Pode. Toda turma tem adaptações, e a avaliação inicial define por onde começar.</p></details>
+      <details><summary>Tem estacionamento?</summary><p>No site real, aqui entram o endereço, o mapa e as informações de estacionamento.</p></details>
+      <details><summary>Posso trocar de horário?</summary><p>Sim, é só reservar pelo app ou avisar pelo WhatsApp com antecedência.</p></details>
+    </div></section>
+  </main>
+
+  <footer class="rodape-conceito"><div class="wrap">Pulso Studio é um negócio fictício. Este é um projeto conceito de <a href="../sites.html">Lucca Rocha · sites para negócios locais</a>.</div></footer>
+
+  <script src="conceito.js"></script>
+  <script src="../assets/script.js"></script>
+</body>
+</html>
