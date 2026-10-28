@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Embeleze Car · Estética automotiva em Maringá (prévia)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Prévia do site da Embeleze Car, estética automotiva na Vila Nova, em Maringá.">
+  <meta name="theme-color" content="#101218">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101218'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-size='32' font-weight='800' text-anchor='middle' fill='%23e23b3b'%3EE%3C/text%3E%3C/svg%3E">
+  <style>
+    /* layout: faixa de prévia, cabeçalho fixo, hero com reflexo de pintura, serviços, diferenciais, horário e endereço; uma coluna no celular */
+    :root {
+      --bg: #101218;          /* grafite de pintura */
+      --surface: #181b23;
+      --surface-2: #20242e;
+      --line: #2c313d;
+      --text: #eef0f4;
+      --muted: #a2a8b6;
+      --red: #e23b3b;         /* vermelho de verniz */
+      --red-deep: #9c1f24;
+      --chrome: #c9ced8;
+      --wa: #25d366;
+      --f-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+      --f-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --r: 16px;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--f-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    img, svg { max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 6px; }
+    .wrap { width: min(1080px, 100%); margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+    .previa { background: var(--chrome); color: #14161c; font-size: 0.78rem; font-weight: 600; text-align: center; padding: 6px 16px; }
+    .previa a { font-weight: 700; }
+
+    header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+    .logo { font-family: var(--f-display); font-stretch: 120%; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none; }
+    .logo span { color: var(--red); }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 0.98rem; padding: 14px 22px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); transition: transform .15s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--chrome); }
+    .btn.wa { background: var(--wa); border-color: var(--wa); color: #06210f; }
+    .btn.sm { padding: 9px 14px; font-size: 0.88rem; border-radius: 10px; }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+
+    /* hero: reflexo de pintura polida */
+    .hero { position: relative; overflow: hidden; padding: 64px 0 72px; }
+    .hero::before { content: ""; position: absolute; inset: -20% -10% auto; height: 120%;
+      background:
+        radial-gradient(60% 40% at 78% 30%, color-mix(in srgb, var(--red) 55%, transparent), transparent 70%),
+        linear-gradient(115deg, transparent 38%, rgba(255,255,255,.10) 46%, transparent 54%),
+        linear-gradient(115deg, transparent 58%, rgba(255,255,255,.05) 62%, transparent 66%);
+      pointer-events: none; }
+    .hero .wrap { position: relative; display: grid; gap: 24px; }
+    .eyebrow { font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--chrome); font-weight: 700; }
+    h1 { font-family: var(--f-display); font-stretch: 112%; font-weight: 800; font-size: clamp(2.5rem, 8vw, 4.6rem); line-height: 0.98; letter-spacing: -0.01em; text-wrap: balance; max-width: 14ch; }
+    h1 em { font-style: normal; background: linear-gradient(180deg, #fff 10%, var(--chrome) 55%, #7d8494 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 46ch; }
+    .nota { display: inline-flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 0.92rem; width: fit-content; }
+    .nota b { font-family: var(--f-display); font-size: 1.1rem; }
+    .estrelas { color: #f5b301; letter-spacing: 2px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    section { padding: 56px 0; }
+    h2 { font-family: var(--f-display); font-stretch: 110%; font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 2.4rem); line-height: 1.1; text-wrap: balance; margin-bottom: 8px; }
+    .sub { color: var(--muted); max-width: 56ch; margin-bottom: 28px; }
+
+    .servicos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .servico { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 10px; align-content: start; position: relative; overflow: hidden; }
+    .servico::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--red), var(--red-deep)); }
+    .servico h3 { font-family: var(--f-display); font-stretch: 108%; font-size: 1.3rem; }
+    .servico p { color: var(--muted); font-size: 0.97rem; }
+    .servico .icone { width: 44px; height: 44px; border-radius: 12px; background: var(--surface-2); display: grid; place-items: center; color: var(--chrome); }
+    .servico .icone svg { width: 24px; height: 24px; }
+
+    .porque { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .item { border-top: 2px solid var(--line); padding-top: 16px; display: grid; gap: 6px; }
+    .item b { font-family: var(--f-display); font-stretch: 108%; font-size: 1.15rem; }
+    .item span { color: var(--muted); font-size: 0.95rem; }
+    .fonte { margin-top: 18px; font-size: 0.88rem; color: var(--muted); }
+    .fonte a { color: var(--chrome); }
+
+    .passos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: p; }
+    .passos li { counter-increment: p; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 6px; }
+    .passos li::before { content: counter(p); font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; color: var(--red); line-height: 1; }
+    .passos b { font-size: 1rem; }
+    .passos span { color: var(--muted); font-size: 0.92rem; }
+
+    .local { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 14px; align-content: start; }
+    .card h3 { font-family: var(--f-display); font-stretch: 108%; font-size: 1.2rem; }
+    .horas { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    .horas td { padding: 7px 0; border-bottom: 1px solid var(--line); }
+    .horas td:last-child { text-align: right; color: var(--muted); }
+    .horas tr.hoje td { color: var(--text); font-weight: 700; }
+    .end { color: var(--muted); }
+
+    .final { text-align: center; }
+    .final .cta { justify-content: center; }
+    .final h2 { max-width: 20ch; margin-inline: auto; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 96px; color: var(--muted); font-size: 0.85rem; }
+    footer .wrap { display: grid; gap: 6px; }
+
+    .flutuante { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; border-radius: 999px; box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); }
+
+    @media (max-width: 820px) {
+      .servicos, .porque, .local { grid-template-columns: 1fr; }
+      .passos { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 40px 0 52px; }
+      header .btn span { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="previa">Prévia do site da Embeleze Car feita por <a href="https://lucskrr.github.io/sites.html?utm_source=previa-embeleze" target="_blank" rel="noopener">Lucca Rocha</a>. Textos e imagens ilustrativos, ajustáveis.</div>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#topo">Embeleze <span>Car</span></a>
+      <a class="btn wa sm" href="https://wa.me/5544998401187?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Embeleze%20Car%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
+        <span>Orçamento</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="topo">
+    <div class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Estética automotiva · Vila Nova, Maringá</span>
+        <h1>Seu carro com <em>brilho de novo.</em></h1>
+        <p class="lead">Polimento e vitrificação feitos com cuidado, materiais de primeira e preço justo. Mande uma foto do carro pelo WhatsApp e receba seu orçamento.</p>
+        <a class="nota" href="https://www.google.com/maps/search/?api=1&query=Embeleze%20Car%20est%C3%A9tica%20automotiva%20Maring%C3%A1" target="_blank" rel="noopener">
+          <span class="estrelas" aria-hidden="true">★★★★★</span><b>5,0</b> com 60 avaliações no Google
+        </a>
+        <div class="cta">
+          <a class="btn wa" href="https://wa.me/5544998401187?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Embeleze%20Car%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+          <a class="btn" href="#onde">Como chegar</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="servicos">
+      <div class="wrap">
+        <h2>Serviços</h2>
+        <p class="sub">Cada carro recebe uma avaliação antes do serviço, para indicar o tratamento certo para a pintura.</p>
+        <div class="servicos">
+          <article class="servico">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></div>
+            <h3>Polimento</h3>
+            <p>Remove riscos superficiais, manchas e marcas de lavagem, devolvendo o brilho e a profundidade da cor.</p>
+          </article>
+          <article class="servico">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3>Vitrificação</h3>
+            <p>Camada de proteção que mantém o brilho por mais tempo e facilita a limpeza do dia a dia.</p>
+          </article>
+          <article class="servico">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 13l2-5a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 5v4H3v-4Z"/><path d="M3 13h18M7 17v2M17 17v2"/></svg></div>
+            <h3>Outros cuidados</h3>
+            <p>Fale com a gente pelo WhatsApp e conte o que o seu carro precisa. A gente indica o serviço ideal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Por que a Embeleze Car</h2>
+        <p class="sub">É o que os clientes mais destacam nas avaliações do Google.</p>
+        <div class="porque">
+          <div class="item"><b>Atendimento atencioso</b><span>Você fala direto com quem cuida do seu carro, do orçamento à entrega.</span></div>
+          <div class="item"><b>Materiais de primeira</b><span>Produtos de qualidade para um acabamento que dura.</span></div>
+          <div class="item"><b>Preço justo</b><span>Orçamento claro antes de começar, sem surpresa na hora de retirar.</span></div>
+        </div>
+        <p class="fonte"><a href="https://www.google.com/maps/search/?api=1&query=Embeleze%20Car%20est%C3%A9tica%20automotiva%20Maring%C3%A1" target="_blank" rel="noopener">Ver as 60 avaliações no Google →</a></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Como funciona</h2>
+        <p class="sub">Do orçamento ao carro brilhando, tudo combinado pelo WhatsApp.</p>
+        <ol class="passos">
+          <li><b>Mande uma foto</b><span>Conte o modelo e o que quer fazer.</span></li>
+          <li><b>Receba o orçamento</b><span>Com o serviço indicado e o valor.</span></li>
+          <li><b>Agende</b><span>Escolha o dia que fica melhor para você.</span></li>
+          <li><b>Retire brilhando</b><span>E conte pra gente o que achou.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="onde">
+      <div class="wrap">
+        <h2>Onde estamos</h2>
+        <p class="sub">Na Vila Nova, fácil de chegar de qualquer parte de Maringá.</p>
+        <div class="local">
+          <div class="card">
+            <h3>Endereço</h3>
+            <p class="end">Av. São Domingos, 1446 · Vila Nova<br>Maringá - PR · 87040-000</p>
+            <div class="cta">
+              <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Embeleze%20Car%20est%C3%A9tica%20automotiva%2C%20Av.%20S%C3%A3o%20Domingos%2C%201446%2C%20Maring%C3%A1" target="_blank" rel="noopener">Abrir rota no Google Maps</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Horário</h3>
+            <table class="horas" id="horas">
+              <tr data-d="1"><td>Segunda a sexta</td><td>8h às 18h</td></tr>
+              <tr data-d="6"><td>Sábado</td><td>8h às 13h</td></tr>
+              <tr data-d="0"><td>Domingo</td><td>Fechado</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <h2>Bora deixar seu carro brilhando?</h2>
+        <p class="sub" style="margin-inline:auto">Mande uma foto pelo WhatsApp e receba o orçamento sem compromisso.</p>
+        <div class="cta">
+          <a class="btn wa" href="https://wa.me/5544998401187?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Embeleze%20Car%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Embeleze Car estética automotiva · Av. São Domingos, 1446 · Vila Nova · Maringá - PR · (44) 99840-1187</span>
+      <span>Prévia criada por Lucca Rocha. Ao contratar, entram as fotos reais dos seus trabalhos, a lista completa de serviços e o endereço com o nome da Embeleze Car.</span>
+    </div>
+  </footer>
+
+  <a class="btn wa flutuante" href="https://wa.me/5544998401187?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Embeleze%20Car%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Chamar a Embeleze Car no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
+    WhatsApp
+  </a>
+
+  <script>
+    // destaca a linha de horário de hoje
+    var d = new Date().getDay();
+    var alvo = d >= 1 && d <= 5 ? "1" : String(d);
+    var tr = document.querySelector('#horas tr[data-d="' + alvo + '"]');
+    if (tr) tr.className = "hoje";
+  </script>
+</body>
+</html>
