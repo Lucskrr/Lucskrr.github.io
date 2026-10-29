@@ -1,6 +1,6 @@
 (function () {
   // ID de métricas do GA4 (G-XXXXXXX). Vazio = nada do Google carrega e o banner não aparece.
-  var GA_ID = "G-BCLD06LL15";
+  var GA_ID = "G-NXHQ5GVPJP";
   if (!GA_ID) return;
 
   // Consent Mode v2: tudo negado até a pessoa escolher
